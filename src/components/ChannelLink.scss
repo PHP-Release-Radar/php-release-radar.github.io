@@ -1,0 +1,23 @@
+.channelLink {
+  @apply opacity-75;
+
+  & + a {
+    @apply ml-8;
+  }
+
+  &.youtube {
+    color: #f62b2b;
+  }
+
+  &.twitter {
+    color: #1a82c2;
+  }
+
+  &.calendar {
+    color: #e1ab18;
+  }
+
+  &:hover {
+    @apply opacity-100;
+  }
+}

@@ -1,0 +1,7 @@
+.loader {
+  @apply text-4xl text-center text-gray-600 my-12;
+
+  &.inactive {
+    @apply hidden;
+  }
+}
