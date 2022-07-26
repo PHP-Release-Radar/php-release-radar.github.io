@@ -1,0 +1,20 @@
+header {
+  @apply mb-16;
+
+  img {
+    @apply float-left mr-24 ml-8 mb-16;
+  }
+
+  h1 {
+    @apply pt-12;
+    @apply text-6xl text-gray-900 font-bold tracking-tighter;
+  }
+
+  span {
+    @apply text-lg text-gray-700 tracking-wider;
+  }
+
+  .channels {
+    @apply mt-8 text-5xl;
+  }
+}
