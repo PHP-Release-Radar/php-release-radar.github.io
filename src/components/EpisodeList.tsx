@@ -1,5 +1,5 @@
 import React from "react";
-import { Episode, EpisodeData } from "./Episode";
+import Episode, { EpisodeData } from "./Episode";
 import { Headline } from "./Headline";
 import { HookState } from "use-google-sheets/dist/types";
 import { Loader } from "./Loader";
