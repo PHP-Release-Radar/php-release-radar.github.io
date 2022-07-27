@@ -1,0 +1,11 @@
+.episode {
+  @apply my-2 py-3 px-4 rounded-lg;
+
+  &:hover {
+    @apply bg-gray-100;
+  }
+
+  h3 {
+    @apply text-2xl font-bold mb-1;
+  }
+}

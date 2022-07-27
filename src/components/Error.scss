@@ -1,0 +1,7 @@
+.error {
+  @apply text-2xl text-center text-gray-600 my-12 text-red-800;
+
+  svg {
+    @apply mr-1;
+  }
+}
