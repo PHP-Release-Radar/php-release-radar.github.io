@@ -40,6 +40,7 @@ class Episode extends React.Component<EpisodeProps, EpisodeState> {
   render() {
     const data = this.props.data;
 
+    const title = "Episode " + data["Episode"] + " - " + data["Topic"];
     const videoStreamUrl =
       "https://www.youtube.com/watch?v=" + data["YouTube Stream"];
     const videoEmbedUrl =
@@ -54,7 +55,7 @@ class Episode extends React.Component<EpisodeProps, EpisodeState> {
         <div className="head" onClick={this.toggleBody}>
           <FontAwesomeIcon icon={faAngleDown} />
           <h3>
-            Episode {data["Episode"]} - {data["Topic"]}
+            {title}
             <span className="guest">with {data["Guest(s)"]}</span>
           </h3>
         </div>
@@ -90,6 +91,7 @@ class Episode extends React.Component<EpisodeProps, EpisodeState> {
           <div className="player">
             <iframe
               src={videoEmbedUrl}
+              title={title}
               loading="lazy"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
