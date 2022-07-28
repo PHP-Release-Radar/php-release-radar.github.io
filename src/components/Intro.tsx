@@ -8,8 +8,13 @@ export const Intro = ({ links }: LinkProps) => (
     <img src={denischris} alt="Denis Brumann and Christopher Hertel" />
     <p>
       The YouTube project <span>PHP Release Radar</span> was initiated by
-      <a href={links.brumann}>Denis Brumann</a>and
-      <a href={links.hertel}>Christopher Hertel</a>
+      <a href={links.brumann} target="_blank" rel="noreferrer">
+        Denis Brumann
+      </a>
+      and
+      <a href={links.hertel} target="_blank" rel="noreferrer">
+        Christopher Hertel
+      </a>
       in COVID-19 times where in-person events like conferences or meetups were
       not a thing.
     </p>

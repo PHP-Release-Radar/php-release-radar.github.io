@@ -3,7 +3,10 @@ import {
   faAngleDown,
   faUser,
   faClock,
+  faCalendar,
+  faExternalLinkSquareAlt,
 } from "@fortawesome/free-solid-svg-icons";
+import { faYoutube } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Episode.scss";
 import moment from "moment";
@@ -25,8 +28,8 @@ class Episode extends React.Component<EpisodeProps, EpisodeState> {
     collapsed: true,
   };
 
-  constructor({ data }: EpisodeProps) {
-    super({ data });
+  constructor(props: EpisodeProps) {
+    super(props);
     this.toggleBody = this.toggleBody.bind(this);
   }
 
@@ -37,28 +40,27 @@ class Episode extends React.Component<EpisodeProps, EpisodeState> {
   render() {
     const data = this.props.data;
 
-    const title = "Episode " + data["Episode"] + " - " + data["Topic"];
-    const titleGuest = title + " with " + data["Guest(s)"];
-    const imageUrl =
-      "https://img.youtube.com/vi/" + data["YouTube Stream"] + "/mqdefault.jpg";
-    const videoUrl = "https://www.youtube.com/embed/" + data["YouTube Stream"];
+    const videoStreamUrl =
+      "https://www.youtube.com/watch?v=" + data["YouTube Stream"];
+    const videoEmbedUrl =
+      "https://www.youtube.com/embed/" + data["YouTube Stream"];
+    const calendarUrl =
+      "https://calendar.google.com/event?action=TEMPLATE&tmeid=" +
+      data["Calendar"] +
+      "&tmsrc=phpreleaseradar%40gmail.com";
 
     return (
       <div className={`episode ${this.state.collapsed ? "collapsed" : ""}`}>
         <div className="head" onClick={this.toggleBody}>
           <FontAwesomeIcon icon={faAngleDown} />
           <h3>
-            {title}
+            Episode {data["Episode"]} - {data["Topic"]}
             <span className="guest">with {data["Guest(s)"]}</span>
           </h3>
         </div>
         <div className="body">
           <div className="info">
             <div>
-              <img src={imageUrl} alt={titleGuest} />
-            </div>
-            <div>
-              <h4>{title}</h4>
               <p>
                 <FontAwesomeIcon icon={faUser} /> {data["Guest(s)"]}
               </p>
@@ -69,18 +71,26 @@ class Episode extends React.Component<EpisodeProps, EpisodeState> {
                 )}{" "}
                 CET
               </p>
-              <p className="description">
-                Lorem ipsum set dolor Lorem ipsum set dolor Lorem ipsum set
-                dolor Lorem ipsum set dolor Lorem ipsum set dolor Lorem ipsum
-                set dolor Lorem ipsum set dolor.
-              </p>
             </div>
-            <div></div>
+            <div className="links">
+              <a href={data["Project URL"]} target="_blank" rel="noreferrer">
+                <FontAwesomeIcon icon={faExternalLinkSquareAlt} />
+                More about this project
+              </a>
+              <a href={videoStreamUrl} target="_blank" rel="noreferrer">
+                <FontAwesomeIcon icon={faYoutube} />
+                Jump to YouTube stream
+              </a>
+              <a href={calendarUrl} target="_blank" rel="noreferrer">
+                <FontAwesomeIcon icon={faCalendar} />
+                Add this to your calendar
+              </a>
+            </div>
           </div>
           <div className="player">
             <iframe
-              src={videoUrl}
-              title={titleGuest}
+              src={videoEmbedUrl}
+              loading="lazy"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen

@@ -16,7 +16,13 @@ export const ChannelLink = ({
   title,
   icon,
 }: ChannelLinkProps) => (
-  <a className={`channelLink ${className}`} href={link} title={title}>
+  <a
+    className={`channelLink ${className}`}
+    href={link}
+    title={title}
+    target="_blank"
+    rel="noreferrer"
+  >
     <FontAwesomeIcon icon={icon} />
   </a>
 );

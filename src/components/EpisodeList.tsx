@@ -19,11 +19,7 @@ type EpisodeListProps = {
 };
 
 class EpisodeList extends React.Component<EpisodeListProps> {
-  constructor({ title, episodes, filter }: EpisodeListProps) {
-    super({ title, episodes, filter });
-  }
-
-  filteredEpisodes() {
+  filteredEpisodes(): Array<EpisodeData> {
     if (this.props.episodes.loading || this.props.episodes.error) {
       return [];
     }
@@ -32,7 +28,7 @@ class EpisodeList extends React.Component<EpisodeListProps> {
     let episodes = this.props.episodes.data[0].data.filter(function (
       episode: EpisodeData
     ) {
-      if (!("Date" in episode)) {
+      if (!("Date" in episode) || episode["Published"] === "FALSE") {
         return false;
       }
 
@@ -61,7 +57,9 @@ class EpisodeList extends React.Component<EpisodeListProps> {
     } else if (episodes.length === 0) {
       content = <Empty />;
     } else {
-      content = episodes.map((episode) => <Episode data={episode} />);
+      content = episodes.map((episode) => (
+        <Episode key={episode["Episode"]} data={episode} />
+      ));
     }
 
     return (
