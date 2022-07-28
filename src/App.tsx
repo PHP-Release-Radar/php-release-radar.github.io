@@ -1,5 +1,6 @@
 import React from "react";
 import { Header } from "./components/Header";
+import { Intro } from "./components/Intro";
 import { Footer } from "./components/Footer";
 
 export type Links = {
@@ -20,6 +21,7 @@ function App() {
   return (
     <div className="App">
       <Header />
+      <Intro links={links} />
       <Footer links={links} />
     </div>
   );
