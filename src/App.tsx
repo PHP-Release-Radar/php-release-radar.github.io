@@ -21,7 +21,7 @@ const links: Links = {
 };
 
 const apiOptions: HookOptions = {
-  apiKey: "AIzaSyA3KAEDDKkV8CSuaYxp1Q7EPq6nbamoGOs",
+  apiKey: process.env.REACT_APP_API_KEY as string,
   sheetId: "1EoUQakFsdyNbQt4FcrKzxCxLqhR3JzyZSOvDAYAdynU",
   sheetsOptions: [{ id: "Episodes" }],
 };

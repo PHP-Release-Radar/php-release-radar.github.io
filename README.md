@@ -24,3 +24,5 @@ $ cd php-release-radar.github.io
 $ npm install
 $ npm start
 ```
+
+Add a `.env` file with an `REACT_APP_API_KEY` property, containing the API key to read Google Sheets.
