@@ -11,5 +11,8 @@ jobs:
       - name: Install NPM Dependencies
         run: npm clean-install
 
+      - name: Build
+        run: npm run build
+
       - name: Code Style CSS & JS
         run: npm run check-style
