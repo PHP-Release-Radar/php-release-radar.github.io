@@ -28,7 +28,7 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          REACT_APP_API_SECRET: ${{ secrets.PRIVATE_KEY }}
+          REACT_APP_API_SECRET: ${{ secrets.API_KEY }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
