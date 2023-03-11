@@ -45,10 +45,19 @@ class Episode extends React.Component<EpisodeProps, EpisodeState> {
       "https://www.youtube.com/watch?v=" + data["YouTube Stream"];
     const videoEmbedUrl =
       "https://www.youtube.com/embed/" + data["YouTube Stream"];
-    const calendarUrl =
-      "https://calendar.google.com/event?action=TEMPLATE&tmeid=" +
-      data["Calendar"] +
-      "&tmsrc=phpreleaseradar%40gmail.com";
+
+    let CalendarButton = () => <div></div>;
+    if ("" !== data["Calendar"]) {
+      const calendarUrl = "https://calendar.google.com/event?action=TEMPLATE&tmeid=" +
+          data["Calendar"] +
+          "&tmsrc=phpreleaseradar%40gmail.com";
+      CalendarButton = () => (
+          <a href={calendarUrl} target="_blank" rel="noreferrer">
+            <FontAwesomeIcon icon={faCalendar} />
+            Add this to your calendar
+          </a>
+      )
+    }
 
     return (
       <div className={`episode ${this.state.collapsed ? "collapsed" : ""}`}>
@@ -82,10 +91,7 @@ class Episode extends React.Component<EpisodeProps, EpisodeState> {
                 <FontAwesomeIcon icon={faYoutube} />
                 Jump to YouTube stream
               </a>
-              <a href={calendarUrl} target="_blank" rel="noreferrer">
-                <FontAwesomeIcon icon={faCalendar} />
-                Add this to your calendar
-              </a>
+              <CalendarButton />
             </div>
           </div>
           <div className="player">
