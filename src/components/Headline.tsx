@@ -5,4 +5,6 @@ type HeadlineProps = {
   text: string;
 };
 
-export const Headline = ({ text }: HeadlineProps) => <h2>{text}</h2>;
+export default function Headline({ text }: HeadlineProps) {
+  return <h2>{text}</h2>;
+}
