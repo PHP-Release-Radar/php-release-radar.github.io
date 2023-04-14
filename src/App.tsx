@@ -1,7 +1,7 @@
 import React from "react";
-import { Header } from "./components/Header";
-import { Intro } from "./components/Intro";
-import { Footer } from "./components/Footer";
+import Header from "./components/Header";
+import Intro from "./components/Intro";
+import Footer from "./components/Footer";
 import useGoogleSheets from "use-google-sheets";
 import { HookOptions } from "use-google-sheets/dist/types";
 import EpisodeList, { EpisodeFilter } from "./components/EpisodeList";
@@ -26,7 +26,7 @@ const apiOptions: HookOptions = {
   sheetsOptions: [{ id: "Episodes" }],
 };
 
-function App() {
+export default function App() {
   const apiCall = useGoogleSheets(apiOptions);
 
   return (
@@ -47,5 +47,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

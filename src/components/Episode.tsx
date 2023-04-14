@@ -48,15 +48,16 @@ class Episode extends React.Component<EpisodeProps, EpisodeState> {
 
     let CalendarButton = () => <div></div>;
     if ("" !== data["Calendar"]) {
-      const calendarUrl = "https://calendar.google.com/event?action=TEMPLATE&tmeid=" +
-          data["Calendar"] +
-          "&tmsrc=phpreleaseradar%40gmail.com";
+      const calendarUrl =
+        "https://calendar.google.com/event?action=TEMPLATE&tmeid=" +
+        data["Calendar"] +
+        "&tmsrc=phpreleaseradar%40gmail.com";
       CalendarButton = () => (
-          <a href={calendarUrl} target="_blank" rel="noreferrer">
-            <FontAwesomeIcon icon={faCalendar} />
-            Add this to your calendar
-          </a>
-      )
+        <a href={calendarUrl} target="_blank" rel="noreferrer">
+          <FontAwesomeIcon icon={faCalendar} />
+          Add this to your calendar
+        </a>
+      );
     }
 
     return (

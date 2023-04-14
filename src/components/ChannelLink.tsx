@@ -10,19 +10,21 @@ type ChannelLinkProps = {
   icon: IconDefinition;
 };
 
-export const ChannelLink = ({
+export default function ChannelLink({
   className,
   link,
   title,
   icon,
-}: ChannelLinkProps) => (
-  <a
-    className={`channelLink ${className}`}
-    href={link}
-    title={title}
-    target="_blank"
-    rel="noreferrer"
-  >
-    <FontAwesomeIcon icon={icon} />
-  </a>
-);
+}: ChannelLinkProps) {
+  return (
+    <a
+      className={`channelLink ${className}`}
+      href={link}
+      title={title}
+      target="_blank"
+      rel="noreferrer"
+    >
+      <FontAwesomeIcon icon={icon} />
+    </a>
+  );
+}
